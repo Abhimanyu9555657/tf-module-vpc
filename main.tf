@@ -25,8 +25,8 @@ resource "aws_route" "igw" {
 }
 
 resource "aws_eip" "ngw" {
-  count = length(local.public_subnet_ids)
-  domain   = "vpc"
+  count  = length(local.public_subnet_ids)
+  domain = "vpc"
 }
 
 resource "aws_nat_gateway" "ngw" {
