@@ -33,7 +33,7 @@ resource "aws_nat_gateway" "ngw" {
   count         = length(local.public_subnet_ids)
   allocation_id = element(aws_eip.ngw.*.id, count.index)
   subnet_id     = element(local.public_subnet_ids, count.index)
-  tags = merge(local.tags, { Name = "${var.env}-ngw"})
+  tags          = merge(local.tags, { Name = "${var.env}-ngw" })
 }
 
 resource "aws_route" "ngw" {
